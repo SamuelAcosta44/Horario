@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .materias-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Espacio entre las materias */
+}
+
+.materia {
+    display: inline-block;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 5px;
+    width: 200px; /* Ancho deseado para cada materia */
+}
+
+</style>
+
+<body>
+    <h1>Navegacion</h1>
+    <ul>
+        <li>
+            <a href="/home/">Home</a>
+        </li>
+        <li>
+            <a href="/tarea/agregar/">Agregar Tarea</a>
+        </li>
+        <li>
+            <a href="/materia/agregar/">Agregar Materia</a>
+        </li>
+    </ul>
+    {% block content %}
+    <h2>Materias Inscritas</h2>
+
+    <div class="materias-container">
+        {% for materia in materias %}
+        <div class="materia">
+            <div><strong>Día:</strong> {{ materia.dia }}</div>
+            <div><strong>Nombre:</strong> {{ materia.nombre }}</div>
+            <div><strong>Profesor:</strong> {{ materia.profesor }}</div>
+            <div><strong>Hora:</strong> {{ materia.hora }}</div>
+        </div>
+        {% endfor %}
+        {% endblock %}
+</body>
+
+</html>
